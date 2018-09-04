@@ -13,7 +13,7 @@ class DotInstall(Takoyaki):
             'top_menu': self.top_menu,
             'lessons': self.lessons,
             'lesson': self.lesson,
-            'select_source': self.select_source
+            'select_source': self.select_source,
         }
         self.select_mode(modes)
 
@@ -71,8 +71,7 @@ class DotInstall(Takoyaki):
             link = self.url_join(self.BASE_URL, source.get('src'))
             title = source.get('data-res') + 'P ' + source.get('type')
             list_item = {'label': title, 'iconImage': img_url}
-            params = {'mode': 'play_video', 'link': link, 'img_url': img_url}
-            self.add_directory(params, list_item)
+            self.add_media_file(link, list_item)
         self.end_of_directory()
 
     def top_menu(self):
